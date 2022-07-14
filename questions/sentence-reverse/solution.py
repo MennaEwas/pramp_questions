@@ -37,3 +37,20 @@ def reverse_words2(arr):
     elif i == n - 1:
       arr = reverse(arr, start, i)
   return arr
+#python3 
+def reverse_words(arr):
+  words = []
+  c = []
+
+  for char in arr: 
+    if char != ' ':
+      c.append(char)
+    else:
+      if c:
+        words.append(c[:])
+        c=[]
+      words.append(' ')
+  if c:
+    words.append(c[:])
+  print(words)
+  return words
