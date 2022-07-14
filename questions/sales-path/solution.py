@@ -11,8 +11,20 @@ def get_cheapest_cost(rootNode):
         cheapestCost = pathCost
 
   return cheapestCost + rootNode.cost
-
-
+#Python 3 Solution
+def get_cheapest_cost(rootNode):
+  n = len(rootNode.childern)
+  
+  if (n == 0):
+    return rootNode.cost
+  
+  else:
+    minCost = float(inf)
+    for i in range(n):
+      tcost = get_cheapest_cost(rootNode.child[i])
+      if (tcost < minCost):
+        minCost = tcost
+  return minCost + rootNode.cost
 ##########################################
 # Use the helper code below to implement #
 # and test your function above           #
